@@ -3,6 +3,8 @@ import Fishing from "../assets/fishing.png";
 import FishingBG1 from "../assets/fishBG1.png";
 import FishingBG2 from "../assets/fishBG2.png";
 import FishingBG3 from "../assets/fishBG3.png";
+import UpArrow from '../assets/upArrow.svg';
+import DownArrow from "../assets/downArrow.svg";
 
 const FeaturedOptions = () => {
   const [activeSection, setActiveSection] = useState("explore");
@@ -100,37 +102,9 @@ const FeaturedOptions = () => {
                 </h3>
                 <span>
                   {activeSection === option.id ? (
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M18 15L12 9L6 15"
-                        stroke="#1C1812"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <img src={UpArrow} alt="Collapse section" />
                   ) : (
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6 9L12 15L18 9"
-                        stroke="#1C1812"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <img src={DownArrow} alt="Expand section" />
                   )}
                 </span>
               </div>

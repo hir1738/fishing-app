@@ -35,9 +35,10 @@ const Header = () => {
 
   const handleNavClick = (e, path) => {
     if (window.innerWidth < 768) {
-      e.preventDefault();
-      setActivePage(path);
       closeMenu();
+      setTimeout(() => {
+        window.location.href = path;
+      }, 50);
     } else {
       closeMenu();
     }
