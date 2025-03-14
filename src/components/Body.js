@@ -28,11 +28,13 @@ const Body = () => {
             src={TexasFishingMobile}
             alt="Person fly fishing in a misty mountain lake"
             className="w-full h-auto md:hidden"
+            loading="lazy"
           />
           <img
             src={TexasFishingDesktop}
             alt="Person fly fishing in a misty mountain lake"
             className="hidden md:block w-full h-auto"
+            loading="lazy"
           />
         </div>
       </div>

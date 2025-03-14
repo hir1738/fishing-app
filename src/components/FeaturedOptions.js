@@ -102,9 +102,9 @@ const FeaturedOptions = () => {
                 </h3>
                 <span>
                   {activeSection === option.id ? (
-                    <img src={UpArrow} alt="Collapse section" />
+                    <img src={UpArrow} alt="Collapse section" loading="lazy" />
                   ) : (
-                    <img src={DownArrow} alt="Expand section" />
+                    <img src={DownArrow} alt="Expand section" loading="lazy" />
                   )}
                 </span>
               </div>
@@ -116,6 +116,7 @@ const FeaturedOptions = () => {
                       src={Fishing}
                       alt={option.title}
                       className="w-full max-w-[400px] h-auto max-h-[220px] object-cover rounded"
+                      loading="lazy"
                     />
                   </div>
                   <div className="w-3/5">

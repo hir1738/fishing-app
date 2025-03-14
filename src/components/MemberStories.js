@@ -54,6 +54,7 @@ const MemberStories = () => {
                     src={story.image}
                     alt={story.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
                 <div className="flex flex-col">
@@ -84,6 +85,7 @@ const MemberStories = () => {
                       src={story.image}
                       alt={story.title}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                   </div>
                   <div>

@@ -54,7 +54,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a href="/" className="flex items-center gap-2">
-              <img src={Fish} alt="Fish Logo" className="h-10 w-auto" />
+              <img src={Fish} alt="Fish Logo" className="h-10 w-auto" loading="lazy" />
               <span className="hidden md:inline font-gluten font-normal text-[20px] leading-[100%] text-[#514432] w-[250px] h-[18px]">
                 Central Texas Fly Fishing
               </span>
@@ -66,7 +66,7 @@ const Header = () => {
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            <img src={Menu} alt="Menu" className="w-6 h-6" />
+            <img src={Menu} alt="Menu" className="w-6 h-6" loading="lazy" />
           </button>
 
           <nav
