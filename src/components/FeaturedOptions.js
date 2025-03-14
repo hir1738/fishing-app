@@ -115,7 +115,7 @@ const FeaturedOptions = () => {
                     <img
                       src={Fishing}
                       alt={option.title}
-                      className="w-full max-w-[400px] h-auto max-h-[220px] object-cover rounded"
+                      className="w-full max-w-[400px] h-auto max-h-[220px] object-cover"
                       loading="lazy"
                     />
                   </div>
