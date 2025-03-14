@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Fish from "../assets/fish.svg";
+import Menu from "../assets/menu.svg";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,6 +33,16 @@ const Header = () => {
     setMenuOpen(false);
   };
 
+  const handleNavClick = (e, path) => {
+    if (window.innerWidth < 768) {
+      e.preventDefault();
+      setActivePage(path);
+      closeMenu();
+    } else {
+      closeMenu();
+    }
+  };
+
   return (
     <header
       className={`py-4 transition-all duration-300 ${
@@ -43,132 +54,66 @@ const Header = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center gap-2">
               <img src={Fish} alt="Fish Logo" className="h-10 w-auto" />
-              <span
-                className="hidden md:inline"
-                style={{
-                  fontFamily: "Gluten, cursive",
-                  fontWeight: 400,
-                  fontSize: "20px",
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                  color: "#514432",
-                  width: "250px",
-                  height: "18px",
-                }}
-              >
+              <span className="hidden md:inline font-gluten font-normal text-[20px] leading-[100%] text-[#514432] w-[250px] h-[18px]">
                 Central Texas Fly Fishing
               </span>
             </a>
           </div>
 
           <button
-            className="flex flex-col justify-between w-7 h-5 md:hidden"
+            className="md:hidden"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            <span
-              className={`block w-full h-0.5 bg-primary transition-transform duration-300 ${
-                menuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            ></span>
-            <span
-              className={`block w-full h-0.5 bg-primary transition-opacity duration-300 ${
-                menuOpen ? "opacity-0" : ""
-              }`}
-            ></span>
-            <span
-              className={`block w-full h-0.5 bg-primary transition-transform duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            ></span>
+            <img src={Menu} alt="Menu" className="w-6 h-6" />
           </button>
 
           <nav
-            className={`fixed md:static top-0 right-0 w-4/5 md:w-auto h-screen md:h-auto bg-white md:bg-transparent p-16 md:p-0 transition-all duration-300 z-10 transform ${
-              menuOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"
-            } shadow-lg md:shadow-none`}
+            className={`md:static absolute top-16 left-0 w-full md:w-auto bg-white md:bg-transparent p-6 md:p-0 transition-all duration-300 z-10 transform ${
+              menuOpen ? "block" : "hidden md:block"
+            } shadow-md md:shadow-none`}
           >
             <ul className="flex flex-col md:flex-row md:gap-8">
-              <li className="mx-4">
+              <li className="mx-4 mb-6 md:mb-0">
                 <a
                   href="/"
-                  style={{
-                    fontFamily: "Inter",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "150%",
-                    letterSpacing: "0%",
-                    color: "#1C1812",
-                    textDecoration: "none",
-                    paddingBottom: "5px",
-                    borderBottom:
-                      activePage === "/" ? "2px solid black" : "none",
-                    display: "inline-block",
-                  }}
-                  onClick={closeMenu}
+                  className={`font-inter font-normal text-[16px] leading-[150%] text-[#1C1812] no-underline pb-[5px] inline-block ${
+                    activePage === "/" ? "border-b-2 border-[#1C1812]" : ""
+                  }`}
+                  onClick={(e) => handleNavClick(e, "/")}
                 >
                   Home
                 </a>
               </li>
-              <li className="mx-4">
+              <li className="mx-4 mb-6 md:mb-0">
                 <a
                   href="/about"
-                  style={{
-                    fontFamily: "Inter",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "150%",
-                    letterSpacing: "0%",
-                    color: "#1C1812",
-                    textDecoration: "none",
-                    paddingBottom: "5px",
-                    borderBottom:
-                      activePage === "/about" ? "2px solid black" : "none",
-                    display: "inline-block",
-                  }}
-                  onClick={closeMenu}
+                  className={`font-inter font-normal text-[16px] leading-[150%] text-[#1C1812] no-underline pb-[5px] inline-block ${
+                    activePage === "/about" ? "border-b-2 border-[#1C1812]" : ""
+                  }`}
+                  onClick={(e) => handleNavClick(e, "/about")}
                 >
                   About us
                 </a>
               </li>
-              <li className="mx-4">
+              <li className="mx-4 mb-6 md:mb-0">
                 <a
                   href="/services"
-                  style={{
-                    fontFamily: "Inter",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "150%",
-                    letterSpacing: "0%",
-                    color: "#1C1812",
-                    textDecoration: "none",
-                    paddingBottom: "5px",
-                    borderBottom:
-                      activePage === "/services" ? "2px solid black" : "none",
-                    display: "inline-block",
-                  }}
-                  onClick={closeMenu}
+                  className={`font-inter font-normal text-[16px] leading-[150%] text-[#1C1812] no-underline pb-[5px] inline-block ${
+                    activePage === "/services" ? "border-b-2 border-[#1C1812]" : ""
+                  }`}
+                  onClick={(e) => handleNavClick(e, "/services")}
                 >
                   Services
                 </a>
               </li>
-              <li className="mx-4">
+              <li className="mx-4 mb-6 md:mb-0">
                 <a
                   href="/contact"
-                  style={{
-                    fontFamily: "Inter",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "150%",
-                    letterSpacing: "0%",
-                    color: "#1C1812",
-                    textDecoration: "none",
-                    paddingBottom: "5px",
-                    borderBottom:
-                      activePage === "/contact" ? "2px solid black" : "none",
-                    display: "inline-block",
-                  }}
-                  onClick={closeMenu}
+                  className={`font-inter font-normal text-[16px] leading-[150%] text-[#1C1812] no-underline pb-[5px] inline-block ${
+                    activePage === "/contact" ? "border-b-2 border-[#1C1812]" : ""
+                  }`}
+                  onClick={(e) => handleNavClick(e, "/contact")}
                 >
                   Contact
                 </a>
